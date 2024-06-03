@@ -1,7 +1,7 @@
 # DMR-Vbox
 Private Voice box (recorder and answering machine) for DMR / Semplice segreteria "radiofonica"
 
-ITA Lo scopo del progetto è quello di avere un sistema che si connetta alla rete DMR e registri messaggi diretti al proprio ID, e che poi i messaggi possano essere ascoltati a scelta tramite l'invio in allegato ad una mail, listati su di una pagina php o direttamente attraverso la radio.
+Lo scopo del progetto è quello di avere un sistema che si connetta alla rete DMR e registri messaggi diretti al proprio ID, e che poi i messaggi possano essere ascoltati a scelta tramite l'invio in allegato ad una mail, listati su di una pagina php o direttamente attraverso la radio.
 
 Rispetto al codice di [narspt](https://github.com/narspt/DMRVMsg), ho introdotto la lettura di un file di configurazione invece di dover inserire tutte le variabili su di una riga di comando, la lettura e scrittura da/per server mysql, l’invio dei messaggi come allegato di un’email ed infine il riascolto dei messaggi registrati da parte del destinatario usando unicamente la radio.
 
