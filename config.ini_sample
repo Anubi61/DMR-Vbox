@@ -1,0 +1,29 @@
+[opts]
+use_email = "true"
+use_sql = "true"
+
+[email]
+from = "account1@outlook.com"
+to = "account2@gmail.com"
+smtp_server = "smtp-mail.outlook.com"
+smtp_port = "587"
+smtp_usr = "account1@outlook.com"
+smtp_pw = "changemypass"
+
+[mysql]
+sql_server = "localhost"
+sql_usr = "vboxusr"
+sql_pw = "12345678"
+sql_db = "dbox_mycall"
+
+[dmr]
+callsign = "MYCALL"
+dmrid = "123456789"
+dmrhost = "1.2.3.4"
+dmrport = "9876"
+dmrtg = "1234567"
+dmrpw = "Changemypass"
+ambeip = 127.0.0.1
+ambeport = "4000"
+save_path = "messages/"
+reply_path = "voices/"

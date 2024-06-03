@@ -1,0 +1,19 @@
+[Unit]
+Description=MD380 Ambe Emulator for DMR Voice Box
+# Description=Place this file in /lib/systemd/system
+
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/md380-emu
+ExecStartPre = /bin/sh -c 'echo "Starting md380-emu: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStart=/opt/md380-emu/md380-emu -s 4000
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+
+WantedBy=multi-user.target

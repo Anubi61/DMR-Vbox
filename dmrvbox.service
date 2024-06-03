@@ -1,0 +1,19 @@
+[Unit]
+Description=IU4QTF DMR Voice Box
+# Description=Place this file in /lib/systemd/system
+
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=3
+StandardOutput=null
+WorkingDirectory=/opt/DMRVbox
+ExecStartPre = /bin/sh -c 'echo "Starting dmrvbox: [`date +%%T.%%3N`]" >> /var/log/netcheck'
+ExecStart=/opt/DMRVbox/dmrvbox -i config.ini
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+
+[Install]
+
+WantedBy=multi-user.target
