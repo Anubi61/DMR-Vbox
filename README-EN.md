@@ -64,4 +64,26 @@ The dmrtg key instead contains your 7-digit ID.
 Note: To use the voicebox in tg mode dmrtg = your ID, while in cp mode (private call) dmrtg = 0
 
 Finally, in the voices folder there are voice messages generated online. I am both English and Italian.<br>
-For the user who listens to messages
+For the user who listens the recorded messages via radio<br>
+err = file message does not exist <br>
+n1 = a new message<br>
+n2 = new messages<br>
+nx = end of messages<br>
+nn = no new messages<br>
+<br>
+For the correspondent who records them.<br>
+tx0 = welcome<br>
+tx1 = message recorded and 73<br>
+<br>
+Provided you have everything working, here's how to use it:<br>
+
+Corresponding User sets our "news" and presses the ptt.<br>
+If the transmission time is less than 3 seconds, the tx0 file is sent, otherwise the tx1 file and its transmission was recorded in the messages folder.<br>
+If we have chosen to use email and configured the parameters in the ini file, the messages arrive as attachments.<br>
+If instead we have opted for the radio, we set our news on our radio and press PTT (briefly). After a few seconds depending on the condition, the system can transmit nn or n1 or n2.<br>
+In case of n1 or n2, to listen to the next message, briefly press ptt again to advance listening until ending with nx.<br>
+At this link, a practical demonstration of use.<br>
+
+That's all for now.<br>
+
+73 of IU4QTF (formerly IK4DRV)
