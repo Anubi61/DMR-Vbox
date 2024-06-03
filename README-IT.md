@@ -10,20 +10,31 @@ Il programma può essere compilato sia su raspberry pi che debian su pc. Scrivo 
 Prima di iniziare, occorre avere già funzionante, un server mysql/mariadb. Ovviamente se si vuole usare solo l’email, mysql non serve, bisogna pero’ modificare il sorgente in modo tale che non ci siano riferimenti a sql. 
 Comunque mi limito alle spiegazioni per la versione “Full”.<br>
 Su mysql creare un database ed una tabella come riportato qui sotto.<br>
+Campi del database:<br>
+
+fromcall varchar(45) DEFAULT NULL,<br>
+fromdmrid varchar(45) NOT NULL,<br>
+date date NOT NULL,<br>
+time time NOT NULL,<br>
+pathfile varchar(80) NOT NULL,<br>
+listened tinyint(4) DEFAULT NULL,<br>
+advsent tinyint(4) DEFAULT NULL, <-al momento non usato<br>
+
 Per la successiva compilazione di dmrvbox occorre avere installato la libreria libmariadb-dev
 
 Ulteriore server, questa volta da compilare, e’ md280-emu che serve per convertire i frames da ambe (DMR) a pcm e viceversa e quindi scrivere e leggere i files .wav
-Il sorgente lo trovate qui:
-solito git clone, poi entrate dentro, digitate make e finita la compilazione ottenete il server che potete mettere dove vi pare.<br> Io ho optato di tenere ogni eseguibile all’interno di cartelle separate il tutto sotto /opt.<br>
+Il sorgente lo trovate qui: https://github.com/narspt/md380tools/tree/AMBEServer/emulator
+solito git clone https://github.com/narspt/md380tools , poi entrate dentro emulator , digitate make e finita la compilazione ottenete il server che potete mettere dove vi pare.<br> 
+Io ho optato di tenere ogni eseguibile all’interno di cartelle separate il tutto sotto /opt.<br>
 La riga di comando per il server e’ ./md380-emu -s 4000<br>
 Sul mio repository, trovate un esempio di file service da dare in pasto a systemd e cosi’ avere sia md380-emu che dmrvbox gestiti come servizio dal sistema operativo.
 Attenzione che md380-emu va compilato su raspberry o eventualmente cross-compilato su pc, pertanto per farlo funzionare da pc va chiamato tramite l’emulatore arm di qemu.
 Quindi se fate girare tutto su raspberry, compilate e siete a posto, diversamente su pc dopo aver compilato con il cross-compiler dovete installare qemu-user-static e qemu-system-arm
 
-La libreria che gestisce l’email la trovate qui:    , scaricate lo zip e lo estraete dove fate lo sviluppo.
+La libreria che gestisce l’email la trovate qui:  https://sourceforge.net/projects/libquickmail/  , scaricate l'archivio e lo estraete dove fate lo sviluppo.
 Per poterla compilare, dovete necessariamente installare la libcurl4-gnutls-dev
 Poi basta entrare nella cartella libquickmail, digitare make e se tutto va bene make install.
-E per quanto riguarda la libreria ci siamo.<br> E' necessario però che il file quickmail.h sia visibile successivamente al compilatore, <br>ho scelto dunque di copiarlo dalla cartella libquickmail in /usr/include/email/quickmail.h
+E per quanto riguarda la libreria ci siamo.<br> E' necessario però che il file quickmail.h sia visibile successivamente al compilatore, <br>ho scelto dunque di copiarlo dalla cartella del sorgente in /usr/include/email/quickmail.h
 
 Ci si trasferisce nella cartella clonata da github ( git clone https://github.com/Anubi61/DMR-Vbox )
 
@@ -64,9 +75,9 @@ Nel blocco [dmr] prestate attenzione che la chiave dmrid non e’ il vostro ID m
 La chiave dmrtg invece contiene il vostro ID a 7 cifre. 
 Nota: Per usare il voicebox in modalita’ tg dmrtg = vostro ID, mentre in modalita’ cp (chiamata privata) dmrtg = 0
 
-Infine nella cartella voices ci sono dei messaggi vocali generati online. Sono sia inglese sia in italiano.<br>
+Infine nella cartella voices ci sono dei messaggi vocali generati online. Sono sia inglese sia in italiano perchè l'app determina se usare italiano o inglese in base ai primi 3 numeri del DMR ID.<br>
 Per l’utente che ascolta i messaggi via radio<br>
-err = messaggio di file inesistente  <br> 
+err = messaggio di file inesistente<br> 
 n1 = un nuovo messaggio<br>
 n2 = nuovi messaggi<br>
 nx = fine messaggi<br>
@@ -83,7 +94,7 @@ Se il tempo di trasmissione e’ inferiore a 3 secondi, viene inviato il file tx
 Se abbiamo scelto l’uso di email e configurato i parametri nel file ini, i messaggi ci arrivano in allegato.<br>
 Se invece abbiamo optato per la radio, impostiamo il nostro tg sulla nostra radio e premiamo il ptt (brevemente). Dopo alcuni secondi a seconda della condizione, il sistema puo’ trasmettere nn o n1 o n2.<br>
 In caso di n1 o n2, per ascoltare il messaggio successivo, altra breve pressione di ptt per avanzare nell’ascolto fino a terminare con nx.<br>
-A questo link, una dimostrazione pratica dell’utilizzo.<br>
+A questo link: https://youtu.be/40ViwYxvcus una dimostrazione pratica dell’utilizzo.<br>
 
 Per il momento è tutto.<br>
 
