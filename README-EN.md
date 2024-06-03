@@ -1,4 +1,5 @@
-
+# DMR-Vbox
+Private Voice box (recorder and answering machine) for DMR / Semplice segreteria "radiofonica"
 
 The aim of the project is to have a system that connects to the DMR network and records messages directed to your ID, and that the messages can then be listened to by choice by sending them as an attachment to an email, listed on a php page or directly through the radio.
 
