@@ -91,12 +91,12 @@ Instead we have opted for the radio, we set our DMRID (7 digits) on our radio as
 In case of n1 or n2, to listen to the next message, another short press of ptt to advance listening until ending with nx.
 At this link: https://youtu.be/40ViwYxvcus a practical demo. It is in Italian, please set the subtitles in your language.
 
-That's all for the moment.
+That's all for the moment.<br>
 
-73 of IU4QTF (formerly IK4DRV) DMRID 2230026
+73 of IU4QTF (formerly IK4DRV) DMRID 2230026<br>
 
-References:
-https://github.com/narspt/DMRVMsg
-https://github.com/nostar/reflector_connectors
-https://github.com/juribeparada/MMDVM_CM
-https://github.com/narspt/md380tools
+References:<br>
+https://github.com/narspt/DMRVMsg<br>
+https://github.com/nostar/reflector_connectors<br>
+https://github.com/juribeparada/MMDVM_CMv
+https://github.com/narspt/md380tools<br>
