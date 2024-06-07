@@ -1811,7 +1811,9 @@ loadini(in);
              
              } 
 			
-          }
+          } else { 
+		  selftx = false; //bug found by beta tester IU5QTD
+		  }
           txpending = true;
 		   
         }
